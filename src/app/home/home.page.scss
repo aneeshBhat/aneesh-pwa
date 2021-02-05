@@ -29,10 +29,35 @@
   background-color: blue!important;
   background: blue!important;
 }
-ion-content{
 
-  --ion-background-color:#111D12;
+$default-color:#66615B !default;
+$white-color: #FFFFFF !default;
+$dark-color: #212120 !default;
+
+@mixin sidebar-col($color){
+   background-color: $color!important;
+  --ion-background-color:$color!important;
+    &:after{
+     }
+  } 
+  
+  @mixin text-col($color){
+    color:$color!important;
+  }
+
+.ionContent{
+  // background: red;
+&[data-color="white"]{
+    @include sidebar-col($white-color);
+    @include text-col($dark-color);
+    // @include sidebar-text-color($default-color);
+  }
+  &[data-color="black"]{ 
+    @include sidebar-col($dark-color);
+    @include text-col($white-color);
+  }
 }
+
 .con-user{
   width:100%;
   padding-top:10px;
@@ -41,8 +66,8 @@ ion-content{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: black;
-  color:white;
+ 
+  
   // background-image:url('/assets/images/ani.jpeg');
   // background-position: center;
   // background-repeat: no-repeat;
@@ -59,6 +84,15 @@ ion-content{
     // text-align:start;
     margin:50px;
     font-weight: bold;
+    &[data-color="white"]{
+      // @include sidebar-col($white-color);
+      @include text-col($dark-color);
+      // @include sidebar-text-color($default-color);
+    }
+    &[data-color="black"]{ 
+      // @include sidebar-col($dark-color);
+      @include text-col($white-color); 
+    }
     // position: absolute;
     // transform: translate(-50%, -50%);
     // width:100%;
@@ -67,7 +101,7 @@ ion-content{
       //  #f20f4c; 
       animation-name: example;
     animation-duration: 1s;
-  position: relative;
+    position: relative;
     }
     @keyframes example {
       0%   {left:0px; top:100px;}

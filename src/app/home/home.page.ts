@@ -32,8 +32,9 @@ export class HomePage {
       this.presentToast();
       console.log(status)
     });
+    this.changeSidebarColor('black');
 //emit value every second
-const message = interval(5000);
+const message = interval(3000);
 //emit value after five seconds
 const delayForFiveSeconds = () => timer(5000);
 //after 5 seconds, start emitting delayed interval values
@@ -42,10 +43,7 @@ const delayWhenExample = message.pipe(delayWhen(delayForFiveSeconds));
 //ex. output: 5s....1...2...3
 const subscribe = delayWhenExample.subscribe(val => {
   this.showJobTitle = this.showJobTitle ? this.showJobTitle = false : this.showJobTitle = true;
-  console.log(val)
-  if(val > 5){
-    subscribe.unsubscribe();
-  }
+  console.log(val);
 });
    
     // this.imageFetch();
@@ -61,15 +59,26 @@ const subscribe = delayWhenExample.subscribe(val => {
   changeMode(){
     if(this.iconName === "sunny-outline"){
        this.iconName = "moon-outline";
-       this.toolbarColor = "light"
+       this.toolbarColor = "light";
+       this.changeSidebarColor('white');
     }else{
       this.iconName = "sunny-outline";
-      this.toolbarColor = "dark"
+      this.toolbarColor = "dark";
+      this.changeSidebarColor('black');
     }
     // this.iconName =  this.iconName ?"moon-outline":"sunny-outline";
+}
 
+changeSidebarColor(color){
+  var sidebar = <HTMLElement>document.querySelector('.ionContent');
+  var textCol = <HTMLElement>document.querySelector('.title');
+ console.log(textCol);
+  // this.sidebarColor = color;
+  if(sidebar != undefined && textCol != undefined){
+      sidebar.setAttribute('data-color',color);
+      textCol.setAttribute('data-color',color);
   }
-
+}
   getData() {
     this.http.get('https://randomuser.me/api/?results=5').subscribe(result => {
       console.log('results: ', result);
@@ -93,15 +102,8 @@ const subscribe = delayWhenExample.subscribe(val => {
       //  this.img =  URL.createObjectURL(response.blob());
       return await response.blob();
     }
-    
-    
-
     // this.imageFetch().then((blob)=>{
 
     // })
   }
-
-  
- 
-
 }

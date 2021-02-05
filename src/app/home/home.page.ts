@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Plugins } from '@capacitor/core';
+import { ToastController } from '@ionic/angular';
+import { interval, timer } from 'rxjs';
+import { delayWhen } from 'rxjs/operators';
 const { Network } = Plugins;
 
 @Component({
@@ -11,9 +14,14 @@ const { Network } = Plugins;
 export class HomePage {
   users = [];
   joke = null;
+  toolbarColor = "dark";
+  ngClass="job-title";
   appIsOnline = true;
+  iconName ="sunny-outline"
+  img:any = "assets/images/ani.jpeg";
+  showJobTitle= false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,public toastController: ToastController) {}
 
   async ngOnInit() {
     const status = await Network.getStatus();
@@ -21,8 +29,45 @@ export class HomePage {
  
     Network.addListener('networkStatusChange', (status) => {
       this.appIsOnline = status.connected;
-      console.log(this.appIsOnline)
+      this.presentToast();
+      console.log(status)
     });
+//emit value every second
+const message = interval(5000);
+//emit value after five seconds
+const delayForFiveSeconds = () => timer(5000);
+//after 5 seconds, start emitting delayed interval values
+const delayWhenExample = message.pipe(delayWhen(delayForFiveSeconds));
+//log values, delayed for 5 seconds
+//ex. output: 5s....1...2...3
+const subscribe = delayWhenExample.subscribe(val => {
+  this.showJobTitle = this.showJobTitle ? this.showJobTitle = false : this.showJobTitle = true;
+  console.log(val)
+  if(val > 5){
+    subscribe.unsubscribe();
+  }
+});
+   
+    // this.imageFetch();
+  }
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Your settings have been saved.',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  changeMode(){
+    if(this.iconName === "sunny-outline"){
+       this.iconName = "moon-outline";
+       this.toolbarColor = "light"
+    }else{
+      this.iconName = "sunny-outline";
+      this.toolbarColor = "dark"
+    }
+    // this.iconName =  this.iconName ?"moon-outline":"sunny-outline";
+
   }
 
   getData() {
@@ -38,6 +83,25 @@ export class HomePage {
       this.joke = result;
     });
   }
+
+  async imageFetch(){
+    let response = await fetch('assets/images/ani.jpeg');
+    console.log(response)
+    if(!response.ok){
+      throw new Error (`HTTP error! status: ${response.status}`)
+    } else{
+      //  this.img =  URL.createObjectURL(response.blob());
+      return await response.blob();
+    }
+    
+    
+
+    // this.imageFetch().then((blob)=>{
+
+    // })
+  }
+
+  
  
 
 }

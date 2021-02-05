@@ -1,14 +1,57 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  
+  <ion-toolbar  [color]="toolbarColor" >
+    <!-- color="{'iconName' == 'sunny-outline' ? 'dark':'light'}" -->
+    <ion-buttons slot="start" (click)="changeMode()">
+      <!-- <ion-button size="large"> -->
+      <!-- <ion-icon name="moon-outline"></ion-icon> -->
+      <ion-icon [ngStyle]="{'font-size':'2.3rem','margin-left':'20px'}" [name]="iconName"></ion-icon>
+      <!-- </ion-button> -->
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-icon class="socialShare-icons" name="logo-github"></ion-icon>
+        <ion-icon  class="socialShare-icons" name="mail-outline"></ion-icon>
+        <ion-icon class="socialShare-icons" name="logo-instagram"></ion-icon>
+        <ion-icon class="socialShare-icons"  name="logo-skype"></ion-icon>
+      </ion-buttons>
+  
     <ion-title>
-      Devdactic PWA
+    
     </ion-title>
   </ion-toolbar>
 </ion-header>
  
-<ion-content>
-  <ion-button expand="block" (click)="getData()">Get Data</ion-button>
-  <ion-button expand="block" (click)="getOnlineData()">Get Online Data</ion-button>
+<ion-content class="mode">
+
+  <div class="con-user">
+    <!-- <div class="avatar">
+      <img  [src]="img" alt="">
+    </div> -->
+    <div class="title">
+      <h1> Hi, I'm Aneesh </h1>
+      <h1>Bhat G</h1>
+      <div *ngIf="showJobTitle" [ngClass]="ngClass">
+
+      <h1>Mobile </h1>
+      <h1>Application</h1>
+      <h1>Developer.</h1>
+      </div>
+      <div *ngIf="!showJobTitle" [ngClass]="ngClass">
+
+        <h1>Fullstack </h1>
+        
+        <h1>Developer.</h1>
+        </div>
+        <h1>based in</h1>
+        <h1>Kundapur.</h1>
+      <!-- <p>Frontend Developer</p> -->
+    </div>
+
+ 
+  
+  </div>
+  <!-- <ion-button expand="block" (click)="getData()" shape="round" color="tertiary">Get Data</ion-button> -->
+  <!-- <ion-button expand="block" (click)="getOnlineData()">Get Online Data</ion-button> -->
  
   <ion-card *ngIf="joke">
     <ion-card-content>
@@ -30,11 +73,11 @@
  
 </ion-content>
  
-<ion-footer>
+<!-- <ion-footer>
   <ion-toolbar color="primary" *ngIf="appIsOnline">
     <ion-title>You are online :)</ion-title>
   </ion-toolbar>
   <ion-toolbar color="danger" *ngIf="!appIsOnline">
     <ion-title>You are offline :(</ion-title>
   </ion-toolbar>
-</ion-footer>
+</ion-footer> -->

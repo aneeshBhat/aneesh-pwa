@@ -25,3 +25,84 @@
 #container a {
   text-decoration: none;
 }
+.mode{
+  background-color: blue!important;
+  background: blue!important;
+}
+ion-content{
+
+  --ion-background-color:#111D12;
+}
+.con-user{
+  width:100%;
+  padding-top:10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: black;
+  color:white;
+  // background-image:url('/assets/images/ani.jpeg');
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // filter: blur(1px);
+  // -webkit-filter: blur(8px);
+  background-size: cover;
+  opacity: 11;
+  
+  // color:white;
+  padding-bottom: 0px;
+  border-radius: 0px 0px  40px 0px;
+
+  .title{
+    // text-align:start;
+    margin:50px;
+    font-weight: bold;
+    // position: absolute;
+    // transform: translate(-50%, -50%);
+    // width:100%;
+    .job-title{
+      color: deeppink;
+      //  #f20f4c; 
+      animation-name: example;
+    animation-duration: 1s;
+  position: relative;
+    }
+    @keyframes example {
+      0%   {left:0px; top:100px;}
+      25%  { left:0px; top:0px;}
+      // 50%  {left:200px; top:200px;}
+      // 75%  {left:0px; top:200px;}
+      // 100% { left:0px; top:0px;}
+    }
+    h1{
+      font-weight: bold;
+      z-index: 1;
+      font-size:2.1rem;
+      line-height: 30px;
+      // padding:0px 0px;
+    }
+    p{
+      font-size: .9rem;
+      opacity: .6;
+      padding:6px 10px;
+    }
+  }
+
+.avatar img{
+  width:100px;
+  border-radius: 30px;
+}
+
+
+}
+.socialShare-icons{
+  margin: 6px;
+}
+// ion-icon {
+//   // zoom: 2.5;
+//   margin-left:20px;
+  
+//   font-size: 2.3rem!important; //Preferred size here
+// }

@@ -16,10 +16,11 @@ export class HomePage {
   joke = null;
   toolbarColor = "dark";
   ngClass="job-title";
+  showJobTitle= false;
   appIsOnline = true;
   iconName ="sunny-outline"
   img:any = "assets/images/ani.jpeg";
-  showJobTitle= false;
+  
 
   constructor(private http: HttpClient,public toastController: ToastController) {}
 
@@ -34,9 +35,9 @@ export class HomePage {
     });
     this.changeSidebarColor('black');
 //emit value every second
-const message = interval(3000);
+const message = interval(4000);
 //emit value after five seconds
-const delayForFiveSeconds = () => timer(5000);
+const delayForFiveSeconds = () => timer(3000);
 //after 5 seconds, start emitting delayed interval values
 const delayWhenExample = message.pipe(delayWhen(delayForFiveSeconds));
 //log values, delayed for 5 seconds
@@ -72,11 +73,12 @@ const subscribe = delayWhenExample.subscribe(val => {
 changeSidebarColor(color){
   var sidebar = <HTMLElement>document.querySelector('.ionContent');
   var textCol = <HTMLElement>document.querySelector('.title');
- console.log(textCol);
+//  console.log(textCol);
   // this.sidebarColor = color;
-  if(sidebar != undefined && textCol != undefined){
+  if(sidebar != undefined ){
       sidebar.setAttribute('data-color',color);
       textCol.setAttribute('data-color',color);
+     
   }
 }
   getData() {

@@ -1,0 +1,45 @@
+.con-user{
+    width:100%;
+    // padding-top:10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   
+    
+    // background-image:url('/assets/images/ani.jpeg');
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // filter: blur(1px);
+    // -webkit-filter: blur(8px);
+    background-size: cover;
+    opacity: 11;
+    
+    // color:white;
+    padding-bottom: 0px;
+    padding: 20px;
+    border-radius: 0px 0px  40px 0px;
+  
+
+.avatar img{
+    // width:100px;
+    // height: 100px;
+    filter: grayscale(100%);
+    border-radius: 30px;
+    align-content: center;
+    text-align: center;
+  }
+  p {
+    text-indent: 50px;
+    text-align: justify;
+    letter-spacing: 3px;
+    color:white;
+    a {
+        text-decoration: none;
+        color: #008CBA;
+      }
+  }
+  
+  
+}

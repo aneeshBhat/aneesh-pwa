@@ -22,12 +22,13 @@
 </ion-header>
  
 <ion-content class="ionContent">
-
+  
   <div class="con-user">
     <!-- <div class="avatar">
       <img  [src]="img" alt="">
     </div> -->
-    <div class="title">
+    <div *ngIf="1" class="title">
+     
       <h1> Hi, I'm Aneesh </h1>
       <h1>Bhat G</h1>
       <div *ngIf="showJobTitle" [ngClass]="ngClass">
@@ -45,11 +46,12 @@
         <h1>based in</h1>
         <h1>Kundapur.</h1>
       <!-- <p>Frontend Developer</p> -->
+     
     </div>
 
- 
-  
-  </div>
+ </div>
+ <ion-button expand="block">Get</ion-button>
+  <app-my-bio></app-my-bio>
   <!-- <ion-button expand="block" (click)="getData()" shape="round" color="tertiary">Get Data</ion-button> -->
   <!-- <ion-button expand="block" (click)="getOnlineData()">Get Online Data</ion-button> -->
  

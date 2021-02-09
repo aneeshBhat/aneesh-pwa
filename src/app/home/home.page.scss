@@ -35,15 +35,15 @@ $white-color: #FFFFFF !default;
 $dark-color: #212120 !default;
 
 @mixin sidebar-col($color){
-   background-color: $color!important;
-  --ion-background-color:$color!important;
-    &:after{
-     }
-  } 
-  
-  @mixin text-col($color){
-    color:$color!important;
-  }
+  background-color: $color!important;
+ --ion-background-color:$color!important;
+   &:after{
+    }
+ } 
+ 
+ @mixin text-col($color){
+   color:$color!important;
+ }
 
 .ionContent{
   // background: red;
@@ -54,7 +54,8 @@ $dark-color: #212120 !default;
   }
   &[data-color="black"]{ 
     @include sidebar-col($dark-color);
-    @include text-col($white-color);
+    @include text-col($white-color); 
+    
   }
 }
 
@@ -97,7 +98,7 @@ $dark-color: #212120 !default;
     // transform: translate(-50%, -50%);
     // width:100%;
     .job-title{
-      color: deeppink;
+      color: crimson;
       //  #f20f4c; 
       animation-name: example;
     animation-duration: 1s;

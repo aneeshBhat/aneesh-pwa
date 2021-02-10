@@ -44,7 +44,7 @@ const delayWhenExample = message.pipe(delayWhen(delayForFiveSeconds));
 //ex. output: 5s....1...2...3
 const subscribe = delayWhenExample.subscribe(val => {
   this.showJobTitle = this.showJobTitle ? this.showJobTitle = false : this.showJobTitle = true;
-  console.log(val);
+  // console.log(val);
 });
    
     // this.imageFetch();
@@ -73,13 +73,13 @@ const subscribe = delayWhenExample.subscribe(val => {
 changeSidebarColor(color){
   var sidebar = <HTMLElement>document.querySelector('.ionContent');
   var textCol = <HTMLElement>document.querySelector('.title');
+  var conuser = <HTMLElement>document.querySelector('.con-user');
 //  console.log(textCol);
   // this.sidebarColor = color;
   if(sidebar != undefined ){
       sidebar.setAttribute('data-color',color);
       textCol.setAttribute('data-color',color);
-     
-  }
+      }
 }
   getData() {
     this.http.get('https://randomuser.me/api/?results=5').subscribe(result => {

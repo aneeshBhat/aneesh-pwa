@@ -32,18 +32,11 @@
 
 $default-color:#66615B !default;
 $white-color: #FFFFFF !default;
-$dark-color: #212120 !default;
+$dark-color: black;
+// #212120 !default;
 
-@mixin sidebar-col($color){
-  background-color: $color!important;
- --ion-background-color:$color!important;
-   &:after{
-    }
- } 
- 
- @mixin text-col($color){
-   color:$color!important;
- }
+// @import '../..//appMixin/Mixin/mixin.scss';
+@import '../../assets/scss/appMixin.scss'; 
 
 .ionContent{
   // background: red;
@@ -57,6 +50,24 @@ $dark-color: #212120 !default;
     @include text-col($white-color); 
     
   }
+}
+
+.swipUp{
+  --background:black;
+ }
+
+.swip-icon{
+  animation-name: swipup;
+  animation-duration: 3s;  
+  animation-fill-mode: forwards;
+}
+
+@keyframes swipup {
+  from {top: 0px;}
+  to {top: 200px;}
+}
+.button-native {
+  background: fixed!important;
 }
 
 .con-user{
@@ -98,7 +109,7 @@ $dark-color: #212120 !default;
     // transform: translate(-50%, -50%);
     // width:100%;
     .job-title{
-      color: crimson;
+      color: deeppink;
       //  #f20f4c; 
       animation-name: example;
     animation-duration: 1s;

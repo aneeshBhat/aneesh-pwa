@@ -1,3 +1,14 @@
+@import '../../../assets/scss/appMixin.scss'; 
+$default-color:#66615B !default;
+$white-color: #FFFFFF !default;
+$dark-color: #212120;
+// #212120 !default;
+
+
+ion-slides {
+  height: 100%;
+}
+
 .con-user{
     width:100%;
     // padding-top:10px;
@@ -6,8 +17,17 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-   
-    
+    &[data-color="white"]{
+      @include sidebar-col($white-color);
+      @include text-col($dark-color);
+      // @include sidebar-text-color($default-color);
+    }
+    &[data-color="black"]{ 
+      @include sidebar-col($dark-color);
+      @include text-col($white-color); 
+      
+    }
+    background: #212120;
     // background-image:url('/assets/images/ani.jpeg');
     // background-position: center;
     // background-repeat: no-repeat;
@@ -18,7 +38,7 @@
     
     // color:white;
     padding-bottom: 0px;
-    padding: 20px;
+    padding: 50px;
     border-radius: 0px 0px  40px 0px;
   
 
@@ -26,14 +46,24 @@
     // width:100px;
     // height: 100px;
     filter: grayscale(100%);
-    border-radius: 30px;
+    border-radius: 20px;
     align-content: center;
     text-align: center;
   }
   p {
     text-indent: 50px;
     text-align: justify;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+    &[data-color="white"]{
+      @include sidebar-col($white-color);
+      @include text-col($dark-color);
+      // @include sidebar-text-color($default-color);
+    }
+    &[data-color="black"]{ 
+      @include sidebar-col($dark-color);
+      @include text-col($white-color); 
+      
+    }
     color:white;
     a {
         text-decoration: none;

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,7 +13,7 @@ import { environment } from '../environments/environment';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
+  imports: [BrowserModule, IonicModule.forRoot(),ReactiveFormsModule, AppRoutingModule,HttpClientModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

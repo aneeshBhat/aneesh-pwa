@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Plugins } from '@capacitor/core';
 import { ToastController } from '@ionic/angular';
 import { interval, timer } from 'rxjs';
@@ -22,7 +23,9 @@ export class HomePage {
   img:any = "assets/images/ani.jpeg";
   
 
-  constructor(private http: HttpClient,public toastController: ToastController) {}
+  constructor(private http: HttpClient,
+    public toastController: ToastController,
+    public router:Router) {}
 
   async ngOnInit() {
     const status = await Network.getStatus();
@@ -55,6 +58,10 @@ const subscribe = delayWhenExample.subscribe(val => {
       duration: 2000
     });
     toast.present();
+  }
+
+  getMyProfitlo(){
+   this.router.navigate(['/get-my-profitile']);
   }
 
   changeMode(){

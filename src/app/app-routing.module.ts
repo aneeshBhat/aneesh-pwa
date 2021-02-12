@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'get-my-profitile',
+    loadChildren: () => import('./get-my-profitile/get-my-profitile.module').then( m => m.GetMyProfitilePageModule)
+  },
 ];
 
 @NgModule({

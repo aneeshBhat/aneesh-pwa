@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>get-my-profitile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides #slide pager="false" [options]="slideOpts" >
+    <ion-slide >
+      <div class="email">
+        <form [formGroup]="registerEmail">
+          <!-- <input formControlName="email" >  -->
+          <ion-input formControlName="email"></ion-input>
+          <span *ngIf="f.email.errors" >Error</span>
+        </form>
+       
+
+        <!-- <ion-button (click)="next()">Next</ion-button> -->
+      </div>
+      
+    </ion-slide>
+    <ion-slide>
+      <!-- <h1>Slide 2</h1><br> -->
+      <input>
+     
+      
+      <!-- <ion-button (click)="next()">Next</ion-button> -->
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 3</h1>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

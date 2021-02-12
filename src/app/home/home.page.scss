@@ -69,7 +69,11 @@ $dark-color: black;
 .button-native {
   background: fixed!important;
 }
-
+.profitile{
+  text-transform: none;
+  --background:linear-gradient(to right,red , pink);
+  --background-image: linear-gradient(to right, rgba(255, 0, 170, 0), rgb(255, 0, 149));
+}
 .con-user{
   width:100%;
   padding-top:10px;

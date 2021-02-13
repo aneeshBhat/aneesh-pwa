@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
   // import { MyBioComponent} from '../shared/my-name/my-name.component';
-import { MyNameComponent,MyBioComponent} from '../shared/index';
+import { MyNameComponent,MyBioComponent,ServiceService} from '../shared/index';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
@@ -17,6 +17,7 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage,MyNameComponent,MyBioComponent]
+  declarations: [HomePage,MyNameComponent,MyBioComponent],
+  providers:[ServiceService]
 })
 export class HomePageModule {}

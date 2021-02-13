@@ -1,7 +1,10 @@
 ion-slides {
     height: 100%;
   }
-
+ion-input{
+    border: solid 2px deeppink;
+    border-radius: 50px;
+}
   .email{
       display: flex;
       flex-direction: row;

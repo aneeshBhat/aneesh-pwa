@@ -9,7 +9,7 @@ ion-slides {
   height: 100%;
 }
 
-.con-user{
+.user{
     width:100%;
     // padding-top:10px;
     position: relative;
@@ -18,16 +18,14 @@ ion-slides {
     justify-content: center;
     flex-direction: column;
     &[data-color="white"]{
-      @include sidebar-col($white-color);
+      @include aboutBg($white-color);
       @include text-col($dark-color);
-      // @include sidebar-text-color($default-color);
     }
     &[data-color="black"]{ 
-      @include sidebar-col($dark-color);
-      @include text-col($white-color); 
-      
+      @include text-col($white-color);
+      @include aboutBg($dark-color);
     }
-    background: #212120;
+    // background: #212120;
     // background-image:url('/assets/images/ani.jpeg');
     // background-position: center;
     // background-repeat: no-repeat;
@@ -41,7 +39,9 @@ ion-slides {
     padding: 50px;
     border-radius: 0px 0px  40px 0px;
   
-
+    ion-slides{
+      padding:0px!important;
+    }
 .avatar img{
     // width:100px;
     // height: 100px;
@@ -50,21 +50,24 @@ ion-slides {
     align-content: center;
     text-align: center;
   }
+  h1{
+    font-weight: bold;
+  }
   p {
     text-indent: 50px;
     text-align: justify;
     letter-spacing: 2px;
     &[data-color="white"]{
-      @include sidebar-col($white-color);
+      // @include sidebar-col($white-color);
       @include text-col($dark-color);
       // @include sidebar-text-color($default-color);
     }
     &[data-color="black"]{ 
-      @include sidebar-col($dark-color);
+      // @include sidebar-col($dark-color);
       @include text-col($white-color); 
       
     }
-    color:white;
+    // color:white;
     a {
         text-decoration: none;
         color: #008CBA;

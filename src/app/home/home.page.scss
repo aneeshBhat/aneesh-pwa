@@ -53,25 +53,36 @@ $dark-color: black;
 }
 
 .swipUp{
-  --background:black;
+  &[data-color="white"]{
+    @include aboutBg($white-color);
+    @include text-col($dark-color);
+    // @include sidebar-text-color($default-color);
+  }
+  &[data-color="black"]{ 
+    @include aboutBg($dark-color);
+    @include text-col($white-color); 
+    
+  }
+  // --background:black;
  }
 
 .swip-icon{
-  animation-name: swipup;
-  animation-duration: 3s;  
-  animation-fill-mode: forwards;
+  -webkit-animation: swipup 1s linear infinite;
+  -moz-animation: swipup 1s linear infinite;
+  animation: swipup 1s linear infinite;
 }
 
 @keyframes swipup {
-  from {top: 0px;}
-  to {top: 200px;}
+  50% {
+    opacity: 0.0; 
+  }
 }
 .button-native {
   background: fixed!important;
 }
 .profitile{
   text-transform: none;
-  --background:linear-gradient(to right,red , pink);
+  --background:linear-gradient(to right,red , rgba(248, 6, 38, 0.932));
   --background-image: linear-gradient(to right, rgba(255, 0, 170, 0), rgb(255, 0, 149));
 }
 .con-user{

@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { Plugins } from '@capacitor/core';
 import { ToastController } from '@ionic/angular';
 import { interval, timer } from 'rxjs';
 import { delayWhen } from 'rxjs/operators';
+import { ServiceService } from '../shared/service.service';
+import { IonContent} from '@ionic/angular';
 const { Network } = Plugins;
 
 @Component({
@@ -13,6 +15,8 @@ const { Network } = Plugins;
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  @ViewChild('scroll',{static:true})scroll:IonContent;
+  flicker;
   users = [];
   joke = null;
   toolbarColor = "dark";
@@ -24,6 +28,7 @@ export class HomePage {
   
 
   constructor(private http: HttpClient,
+    private colorService:ServiceService,
     public toastController: ToastController,
     public router:Router) {}
 
@@ -45,7 +50,7 @@ const delayForFiveSeconds = () => timer(3000);
 const delayWhenExample = message.pipe(delayWhen(delayForFiveSeconds));
 //log values, delayed for 5 seconds
 //ex. output: 5s....1...2...3
-const subscribe = delayWhenExample.subscribe(val => {
+this.flicker = delayWhenExample.subscribe(val => {
   this.showJobTitle = this.showJobTitle ? this.showJobTitle = false : this.showJobTitle = true;
   // console.log(val);
 });
@@ -63,6 +68,12 @@ const subscribe = delayWhenExample.subscribe(val => {
   getMyProfitlo(){
    this.router.navigate(['/get-my-profitile']);
   }
+  swipUp(){
+    this.scroll.scrollToPoint(0,500);
+  // console.log(this.scroll.scrollToBottom())
+  // this.flicker.unsubscribe();
+  // this.flicker.subscribe();
+  }
 
   changeMode(){
     if(this.iconName === "sunny-outline"){
@@ -78,14 +89,16 @@ const subscribe = delayWhenExample.subscribe(val => {
 }
 
 changeSidebarColor(color){
+  this.colorService.changeColorState(color);
   var sidebar = <HTMLElement>document.querySelector('.ionContent');
   var textCol = <HTMLElement>document.querySelector('.title');
-  var conuser = <HTMLElement>document.querySelector('.con-user');
+  var swipUp = <HTMLElement>document.querySelector('.swipUp');
 //  console.log(textCol);
   // this.sidebarColor = color;
   if(sidebar != undefined ){
       sidebar.setAttribute('data-color',color);
       textCol.setAttribute('data-color',color);
+      swipUp.setAttribute('data-color',color);
       }
 }
   getData() {

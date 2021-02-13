@@ -1,6 +1,6 @@
 @mixin sidebar-col($color){
     background-color: $color!important;
-    background: $color;
+    background: $color!important;
     --background:$color;
    --ion-background-color:$color!important;
      &:after{
@@ -9,4 +9,9 @@
    
    @mixin text-col($color){
      color:$color!important;
+   }
+   @mixin  aboutBg($color) {
+     background: $color;
+     --background:$color;
+    //  color:$color!important;
    }

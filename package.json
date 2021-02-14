@@ -22,6 +22,7 @@
     "@angular/router": "~11.0.5",
     "@angular/service-worker": "~11.0.5",
     "@capacitor/core": "2.4.6",
+    "@teamhive/capacitor-email": "^0.0.1",
     "@ionic/angular": "^5.5.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

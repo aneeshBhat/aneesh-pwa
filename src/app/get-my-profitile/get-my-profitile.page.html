@@ -1,43 +1,31 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>get-my-profitile</ion-title>
-  </ion-toolbar>
-</ion-header> -->
+
 
 <ion-content>
   <ion-slides #slide pager="false" [options]="slideOpts" >
-    <ion-slide >
+   
+    <ion-slide>
+      <form [formGroup]="registerEmail">
       <div class="email">
-        <form [formGroup]="registerEmail">
-          <!-- <input formControlName="email" >  -->
+          <span>
           <ion-input formControlName="email" placeholder="Enter Your Email"></ion-input>
           <br>
           <span *ngIf="f.email.errors?.required" >Email is Required.</span>
           <span [ngStyle]="{'color':'red'}" *ngIf="f.email.errors?.pattern && !f.email.valid" >Invalid Email!</span>
           <span *ngIf="f.email.valid">Valid*</span>
-        </form>
-       
-
-        <!-- <ion-button (click)="next()">Next</ion-button> -->
+          </span>
       </div>
+    </form>
       
     </ion-slide>
     <ion-slide>
-      <!-- <h1>Slide 2</h1><br> -->
       <ion-item>
-        <ion-label>Gender</ion-label>
-        <ion-select placeholder="Select One">
-          <ion-select-option value="f">Female</ion-select-option>
-          <ion-select-option value="m">Male</ion-select-option>
+        <ion-label>Select Type of Proftile</ion-label>
+        <ion-select #select placeholder="Select One" #prfl (ionChange)="PrfileType(prfl)"> 
+          <ion-select-option value="f">Bussiness</ion-select-option>
+          <ion-select-option value="m">Student</ion-select-option>
         </ion-select>
       </ion-item>
-    
-     
-      
-      <!-- <ion-button (click)="next()">Next</ion-button> -->
     </ion-slide>
-    <!-- <ion-slide>
-      <h1>Slide 3</h1>
-    </ion-slide> -->
+  
   </ion-slides>
 </ion-content>
